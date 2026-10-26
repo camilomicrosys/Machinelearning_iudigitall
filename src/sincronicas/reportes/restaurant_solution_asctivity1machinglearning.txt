@@ -1,0 +1,104 @@
+REPORTE DEL DATAFRAME
+============================================================
+Filas: 1000
+Columnas: 42
+Duplicados: 0
+
+Columnas y tipos:
+- attribution: object
+- bbox_format: object
+- bbox_source: object
+- category: object
+- currency: object
+- currency_symbol: object
+- editable_bbox: object
+- embedding_model: object
+- entity: object
+- image: object
+- human_verified: bool
+- image_id: object
+- is_synthetic: bool
+- item_name: object
+- license_url: object
+- menu_date: object
+- menu_id: float64
+- menu_location: object
+- menu_page_id: float64
+- menu_region: object
+- nearest_image_id: object
+- nearest_selected_cosine_similarity: float64
+- normalized_value: object
+- nypl_data_url: object
+- nypl_image_id: object
+- nypl_menu_item_id: float64
+- nypl_price_xpos: float64
+- nypl_price_ypos: float64
+- ocr_confidence: float64
+- ocr_engine: object
+- perceptual_hash: object
+- provenance_notes: object
+- question: object
+- selection_method: object
+- sha256: object
+- source_dataset: object
+- source_id: object
+- source_license: object
+- source_url: object
+- type: object
+- value_type: object
+- visible_value: object
+
+Valores nulos por columna:
+- attribution: 0
+- bbox_format: 0
+- bbox_source: 0
+- category: 0
+- currency: 0
+- currency_symbol: 500
+- editable_bbox: 0
+- embedding_model: 0
+- entity: 0
+- image: 0
+- human_verified: 0
+- image_id: 0
+- is_synthetic: 0
+- item_name: 0
+- license_url: 0
+- menu_date: 500
+- menu_id: 500
+- menu_location: 500
+- menu_page_id: 500
+- menu_region: 0
+- nearest_image_id: 0
+- nearest_selected_cosine_similarity: 0
+- normalized_value: 0
+- nypl_data_url: 500
+- nypl_image_id: 500
+- nypl_menu_item_id: 500
+- nypl_price_xpos: 500
+- nypl_price_ypos: 500
+- ocr_confidence: 0
+- ocr_engine: 0
+- perceptual_hash: 0
+- provenance_notes: 0
+- question: 0
+- selection_method: 500
+- sha256: 0
+- source_dataset: 0
+- source_id: 0
+- source_license: 0
+- source_url: 0
+- type: 0
+- value_type: 0
+- visible_value: 0
+
+Estadísticas numéricas:
+         menu_id  menu_page_id  nearest_selected_cosine_similarity  nypl_menu_item_id  nypl_price_xpos  nypl_price_ypos  ocr_confidence
+count    500.000       500.000                            1000.000             500.00          500.000          500.000        1000.000
+mean   20035.598     23123.670                               0.907          292726.00            0.304            0.471          91.712
+std     4545.651     14119.578                               0.044          210255.83            0.185            0.234          10.222
+min    12474.000       156.000                               0.700             126.00            0.006            0.076          28.690
+25%    15496.500      9263.750                               0.879          136980.00            0.151            0.261          92.210
+50%    21799.500     27315.000                               0.914          287456.00            0.257            0.429          96.190
+75%    23803.750     34864.250                               0.946          405645.50            0.463            0.658          96.800
+max    26282.000     44161.000                               0.959         1388676.00            0.766            0.951          97.020
