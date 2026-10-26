@@ -1,0 +1,45 @@
+================================================================================
+REPORTE AUTOMÁTICO DE ENTRENAMIENTO DE MODELOS
+================================================================================
+Fecha de ejecución: 2026-10-26 03:01:32
+Dataset de Hugging Face: espejelomar/data-science-job-salaries
+
+1. INFORMACIÓN DEL DATASET Y PREPROCESAMIENTO
+--------------------------------------------------------------------------------
+- Filas analizadas: 607
+- Duplicados detectados: 42
+- Valores nulos detectados: 0
+- Ambas tareas utilizan el mismo dataset sin fuga de datos (Data Leakage).
+
+2. MODELO DE REGRESIÓN LINEAL (Clase RegresionLineal)
+--------------------------------------------------------------------------------
+- Objetivo: Predecir el salario continuo en dólares (salary_in_usd).
+- Predictoras Múltiples: ['work_year', 'remote_ratio']
+- División: 80% Entrenamiento, 20% Prueba (random_state=42)
+- Parámetros calculados:
+  * Pesos w: [18666.666047341314, 165.98621189166488]
+  * Intercepto b: -37630707.39
+- Métricas de Evaluación:
+  * MAE:  45368.61 USD
+  * RMSE: 61221.77 USD
+  * R²:   0.0220
+
+3. MODELO DE CLASIFICACIÓN (Regresión Logística)
+--------------------------------------------------------------------------------
+- Objetivo: Clasificar si el puesto corresponde a nivel Senior ('SE' = 1, otros = 0).
+- Predictoras: ['work_year', 'remote_ratio']
+- Métricas de Evaluación:
+  * Exactitud (Accuracy):  64.75%
+  * Precisión (Precision): 60.71%
+  * Sensibilidad (Recall): 61.82%
+  * F1-Score:              61.26%
+- Matriz de Confusión:
+  [VN: 45 | FP: 22]
+  [FN: 21 | VP: 34]
+
+4. CONCLUSIONES
+--------------------------------------------------------------------------------
+- El flujo completo se ejecuta de forma reproducible en GitHub Actions.
+- La regresión modela la tendencia temporal y remota del salario, mientras que
+  el clasificador predice el nivel de experiencia Senior con las mismas predictoras.
+================================================================================
