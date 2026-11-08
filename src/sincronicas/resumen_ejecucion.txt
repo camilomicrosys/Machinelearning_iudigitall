@@ -1,0 +1,60 @@
+================================================================================
+RESUMEN AUTOMÁTICO DE EJECUCIÓN - APRENDIZAJE SUPERVISADO (EA3 UNIDAD 2)
+================================================================================
+Fecha de ejecución: 2026-11-08 21:43:36
+
+1. PREGUNTA DE NEGOCIO
+--------------------------------------------------------------------------------
+¿Qué clientes tienen mayor probabilidad de abandonar el servicio de telecomunicaciones (Churn),
+para que el equipo de retención priorice intervenciones comerciales preventivas antes de que 
+cancelen su suscripción?
+Beneficiario: Equipo de Fidelización y Customer Success.
+Decisión apoyada: Asignación de ofertas, descuentos y soporte preferencial a cuentas en riesgo.
+
+2. IDENTIFICACIÓN DEL DATASET
+--------------------------------------------------------------------------------
+Identificador en Hugging Face: scikit-learn/churn-prediction
+Enlace: https://huggingface.co/datasets/scikit-learn/churn-prediction
+Total registros analizados: 7,021 filas y 21 columnas.
+Tasa base de abandono: 26.45%
+
+3. PREPROCESAMIENTO APLICADO
+--------------------------------------------------------------------------------
+- Exclusión de identificador no predictivo (customerID).
+- Conversión e imputación de nulos en TotalCharges (clientes con tenure = 0 meses).
+- Binarización de la variable objetivo Churn (Yes -> 1, No -> 0).
+- Codificación One-Hot Encoding en variables categóricas con dtype numérico.
+- División estratificada: 80% entrenamiento (5616 filas) / 20% prueba (1405 filas).
+
+4. MODELO Y HIPERPARÁMETROS
+--------------------------------------------------------------------------------
+Tipo de Aprendizaje: Supervisado (Clasificación Binaria).
+Algoritmo: Árbol de Decisión (DecisionTreeClassifier).
+Hiperparámetro óptimo: max_depth = 3 (determinado con StratifiedKFold de 5 pliegues).
+Criterio de división: Impureza de Gini.
+Semilla aleatoria: 42
+
+5. MÉTRICAS EVALUADAS EN CONJUNTO DE PRUEBA
+--------------------------------------------------------------------------------
+Exactitud (Accuracy):           0.7836 (vs modelo perezoso: 0.7352)
+ROC-AUC Score:                  0.7949
+PR-AUC (Average Precision):     0.5547
+Precisión (Clase Abandono):     0.6635
+Recall (Clase Abandono):        0.3710
+F1-Score:                       0.4759
+
+Matriz de Confusión:
+- Verdaderos Negativos (Leales confirmados):             963
+- Falsos Positivos (Falsas alarmas de abandono):        70
+- Falsos Negativos (Fugas no detectadas - Costo real):  234
+- Verdaderos Positivos (Fugas detectadas a tiempo):     138
+
+6. HALLAZGOS PRINCIPALES Y RESPUESTA AL NEGOCIO
+--------------------------------------------------------------------------------
+1. El tipo de contrato (Contract_Month-to-month) y la antigüedad (tenure) son las 
+   reglas con mayor ganancia de Gini en la raíz del árbol.
+2. Clientes con contrato mensual y antigüedad inferior a 12 meses representan el 
+   grupo con mayor propensión a la deserción (tasa superior al 45%).
+3. La equidad por género demostró un comportamiento simétrico y balanceado,
+   asegurando que las decisiones no presentan sesgos demográficos discriminatorios.
+================================================================================
